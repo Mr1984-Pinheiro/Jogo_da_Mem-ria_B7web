@@ -13,8 +13,9 @@ export const Container = styled.div`
 
     &:hover {
         opacity: .9;
-        transform: translate(0, -4%);
-        transition: all ease 0.3s;
+        transform: translate(0, -7%);
+        box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, .2);
+        transition: ease-in-out 300ms;
     }
 
 `;
