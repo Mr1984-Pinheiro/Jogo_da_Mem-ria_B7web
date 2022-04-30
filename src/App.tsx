@@ -34,7 +34,18 @@ const App = () => {
       for(let i = 0; i < (items.length * 2); i++) tmpGrid.push({
         item: null, shomn: false, permanentShomn: false
       });
+
       // 2.2 - preencher o grid
+      for (let w = 0; w < 2; w++) {
+        for(let i =0; i < items.length; i++) {
+          let position = -1;
+          while(position < 0 || tmpGrid[position].item !== null) {
+             position = Math.floor(Math.random() * (items.length * 2));
+          }
+          
+          tmpGrid[position].item = i;
+        }
+      }
 
       // 2.3 - jogar no state
       setGridItems(tmpGrid);
