@@ -66,7 +66,14 @@ const App = () => {
   }
 
    const handleItemClick = (index: number) => {
-
+      if(playing && index !== null && shownCount < 2) {
+          let tmpGrid = [...gridItems];
+          if(tmpGrid[index].permanentShomn === false && tmpGrid[index].shomn === false){
+            tmpGrid[index].shomn = true;
+            setShownCount(shownCount + 1);
+          }
+          setGridItems(tmpGrid);
+      }
    }
 
   return(
