@@ -37,22 +37,43 @@ const App = () => {
       let opened = gridItems.filter(item => item.shomn === true);
       if(opened.length === 2){
 
-        //verifiction - if both are equal, make every "shown" permanent
+        
+        
         if(opened[0].item === opened[1].item) {
-          let tmpGrid = [...gridItems];
+          //verifiction - if both are equal, make every "shown" permanent  
+          let tmpGrid = [...gridItems];        
           for(let i in tmpGrid) {
             if(tmpGrid[i].shomn) {
               tmpGrid[i].permanentShomn = true;
               tmpGrid[i].shomn = false;
             }
-          }
+          } 
           setGridItems(tmpGrid);
-          setShownCount(0);
+          setShownCount(0);            
+        } else {
+          // Verifiction 2 - if they are NOT equal, close all "shown"
+          setTimeout(()=> {
+            let tmpGrid = [...gridItems];
+            for (let i in tmpGrid) {
+                tmpGrid[i].shomn = false;
+            } 
+            setGridItems(tmpGrid);
+            setShownCount(0); 
+          }, 500);        
         }
+        
+
+        setMoveCount(moveCount => moveCount + 1);
 
       }
     }
   }, [shownCount, gridItems])
+
+  useEffect(()=>{
+    if(moveCount > 0 && gridItems.every(item => item.permanentShomn === true)) {
+      setPlaying(false);
+    }
+  }, [moveCount, gridItems]);
 
   const handleReStartAndNew = ()=> {
       // PASSO 1 - resetar o jogo
@@ -108,7 +129,7 @@ const App = () => {
 
           <C.InfoArea>              
               <InfoItem label='Tempo' value={formatTimerElapsed(timeElapsed)} />
-              <InfoItem label='Movimentos' value='0' />
+              <InfoItem label='Movimentos' value={moveCount.toString()} />
           </C.InfoArea>
 
           <Button  label='Reiniciar' onClick={handleReStartAndNew} icon={IconReStart} />
