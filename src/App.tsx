@@ -31,6 +31,29 @@ const App = () => {
     return () => clearInterval(timer);
   }, [playing, timeElapsed]);
 
+  // verify if opened are equal
+  useEffect(()=>{
+    if(shownCount === 2 ){
+      let opened = gridItems.filter(item => item.shomn === true);
+      if(opened.length === 2){
+
+        //verifiction - if both are equal, make every "shown" permanent
+        if(opened[0].item === opened[1].item) {
+          let tmpGrid = [...gridItems];
+          for(let i in tmpGrid) {
+            if(tmpGrid[i].shomn) {
+              tmpGrid[i].permanentShomn = true;
+              tmpGrid[i].shomn = false;
+            }
+          }
+          setGridItems(tmpGrid);
+          setShownCount(0);
+        }
+
+      }
+    }
+  }, [shownCount, gridItems])
+
   const handleReStartAndNew = ()=> {
       // PASSO 1 - resetar o jogo
       setTimeElapsed(0);      
