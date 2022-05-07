@@ -1,11 +1,15 @@
-# Jogo da Memória
+   # Jogo da Memória
 
-<h1 align="center" display="flex">
-    <img alt="web" src="https://user-images.githubusercontent.com/73333067/164966214-8083bf8c-86a5-4f56-96b0-eebb24eaae12.PNG" width="200px" height="150px>
+<div align="center" display="flex">
+    <img alt="web" src="https://user-images.githubusercontent.com/73333067/167237115-c58d0484-fc57-4750-af7d-bff4aed3f99a.PNG" width="700px" height="500px" />
+    <img alt="web" src="https://user-images.githubusercontent.com/73333067/167236821-dd9b5a91-b4fb-4875-b98f-efdb81f05b93.PNG" width="250px" height="500px" />
    
-    
-</h1>
+   </div>
+   
+   ##
 
+                                                                                                                                                
+                                                                                                                                                  
 Este projeto foi feito em aula do curso [B7Web](https://b7web.com.br).
 
 ## Available Scripts
